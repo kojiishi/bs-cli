@@ -1,4 +1,4 @@
-# bs
+# bs-cli
 bs is a simple CLI front-end for [browser-sync].
 
 ```
@@ -19,22 +19,34 @@ bs dir/hello.html
 starts [browser-sync] at the current directory,
 and starts `dir/hello.html`.
 
-Alternatively, use `-r` to specify the root directory.
+Use `-r` to specify the root directory.
 ```
 bs -r .. hello.html
 ```
 starts [browser-sync] with the parent directory as the root.
 
-### Preprocessor
+### Preprocessors
+
+#### Bikeshed
 
 If the specified file has `.bs` extension,
 it is automatically preprocessed by [bikeshed].
 
+#### Graphviz/dot
+
+If the specified file has `.dot` extension,
+it is automatically preprocessed by [Graphviz].
+
 ## Install
 
 ```
-npm -g install kojiishi/bs
+npm -g install bs-cli
+```
+or from github:
+```
+npm -g install kojiishi/bs-cli
 ```
 
 [bikeshed]: https://github.com/tabatkins/bikeshed
 [browser-sync]: https://www.browsersync.io/
+[Graphviz]: http://www.graphviz.org/
