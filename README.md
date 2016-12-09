@@ -21,6 +21,7 @@ and starts `dir/hello.html`.
 
 Use `-r` to specify the root directory.
 ```
+cd dir
 bs -r .. hello.html
 ```
 starts [browser-sync] with the parent directory as the root.
@@ -29,15 +30,16 @@ starts [browser-sync] with the parent directory as the root.
 
 ### Bikeshed
 
-Files with `.bs` extension are preprocessed by [bikeshed].
-
-If [bikeshed] is not locally installed,
-the online service is used.
+Files with `.bs` extension are preprocessed by [bikeshed],
+or its online service if not installed locally.
+```
+cd csswg-drafts/a-spec
+bs -r .. Overview.bs
+```
 
 ### Graphviz/dot
 
 Files with `.dot` extension are preprocessed by [Graphviz].
-
 [Graphviz] must be installed locally in PATH.
 
 ## Install
@@ -51,5 +53,6 @@ npm -g install kojiishi/bs-cli
 ```
 
 [bikeshed]: https://github.com/tabatkins/bikeshed
+[bikeshed-js]: https://www.npmjs.com/package/bikeshed-js
 [browser-sync]: https://www.browsersync.io/
 [Graphviz]: http://www.graphviz.org/
