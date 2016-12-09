@@ -6,7 +6,7 @@ const path = require('path');
 
 let log = () => {};
 let debug = () => {};
-log = debug = console.log.bind(console);
+// log = debug = console.log.bind(console);
 
 class BSCli {
   constructor() {
