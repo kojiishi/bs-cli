@@ -10,7 +10,7 @@ This is equivalent to:
 browser-sync start --server --startPath hello.html --files '*'
 ```
 
-### Root directory
+## Root directory
 
 bs uses the current directory as the root directory.
 ```
@@ -25,17 +25,20 @@ bs -r .. hello.html
 ```
 starts [browser-sync] with the parent directory as the root.
 
-### Preprocessors
+## Preprocessors
 
-#### Bikeshed
+### Bikeshed
 
-If the specified file has `.bs` extension,
-it is automatically preprocessed by [bikeshed].
+Files with `.bs` extension are preprocessed by [bikeshed].
 
-#### Graphviz/dot
+If [bikeshed] is not locally installed,
+the online service is used.
 
-If the specified file has `.dot` extension,
-it is automatically preprocessed by [Graphviz].
+### Graphviz/dot
+
+Files with `.dot` extension are preprocessed by [Graphviz].
+
+[Graphviz] must be installed locally in PATH.
 
 ## Install
 
