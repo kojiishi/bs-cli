@@ -1,5 +1,5 @@
 {
-  "name": "bs",
+  "name": "bs-cli",
   "version": "1.0.0",
   "description": "A simple CLI front-end for browser-sync",
   "main": "bs.js",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kojiishi/bs.git"
+    "url": "git+https://github.com/kojiishi/bs-cli.git"
   },
   "keywords": [
     "browser-sync",
@@ -20,9 +20,9 @@
   "author": "Koji Ishii",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/kojiishi/bs/issues"
+    "url": "https://github.com/kojiishi/bs-cli/issues"
   },
-  "homepage": "https://github.com/kojiishi/bs#readme",
+  "homepage": "https://github.com/kojiishi/bs-cli#readme",
   "dependencies": {
     "bikeshed-js": "github:kojiishi/bikeshed.js",
     "browser-sync": "^2.17.0",
