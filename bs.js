@@ -95,9 +95,16 @@ class Preview {
   }
 
   setContentAsync(url, promise) {
-    return promise.then(content => {
+    promise.then(content => {
       debug('content resolved', content.substr(0, 50));
       this.setContent(url, content);
+      browserSync.reload(url);
+    }, error => {
+      debug('content rejected', error);
+      this.setContent(url, `<!DOCTYPE html><body>
+        <p>Failed to generate content:
+        <pre>${error.toString()}</pre>
+        </body>`);
       browserSync.reload(url);
     });
   }
@@ -131,35 +138,18 @@ function bs2html(source) {
 }
 
 function dot2html(source) {
-  const spawn = require('child_process').spawn;
-  let child = spawn('dot', ['-Tsvg', source]);
-  // TODO: Need to check child.error in addition to stdout?
-  //child.on("error", error => callback(null, error));
-  return readToEndAsync(child.stdout).then(content => {
+  return new Promise(function (resolve, reject) {
+    const child_process = require('child_process');
+    let child = child_process.spawnSync('dot', ['-Tsvg', source])
+    if (child.error) {
+      log('dot2html', child.error);
+      reject(child.error);
+      return;
+    }
+    let content = child.stdout.toString();
     // Convert SVG to HTML.
     content = '<!DOCTYPE html>\n<body>\n' + content + '</body>\n';
-    return content;
-  });
-}
-
-function readToEndAsync(stream) {
-  debug('readToEndAsync');
-  return new Promise(function (resolve, reject) {
-    let buffer = [];
-    stream
-      .on('data', data => {
-        debug('readToEndAsync: data', data);
-        buffer.push(data);
-      }).on('error', error => {
-        debug('readToEndAsync: error', error);
-        reject(error);
-      }).on('end', () => {
-        debug('readToEndAsync: end');
-        resolve(buffer.join(''));
-      }).on('finish', () => {
-        debug('readToEndAsync: finish');
-        resolve(buffer.join(''));
-      });
+    resolve(content);
   });
 }
 
