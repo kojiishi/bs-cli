@@ -1,6 +1,6 @@
 {
   "name": "bs-cli",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A simple CLI front-end for browser-sync",
   "main": "bs.js",
   "bin": {
@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/kojiishi/bs-cli#readme",
   "dependencies": {
-    "bikeshed-js": "github:kojiishi/bikeshed.js",
+    "bikeshed-js": "^1.0.4",
     "browser-sync": "^2.17.0",
     "minimist": "^1.2.0"
   }

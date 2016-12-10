@@ -134,7 +134,8 @@ function bs2html(source) {
   const bikeshed =
     fs.existsSync('../bikeshed-js') ? require('../bikeshed-js') :
     require('bikeshed-js');
-  return bikeshed(source, '-');
+  return bikeshed(source, []).then(buffers =>
+    Buffer.concat(buffers).toString('utf8'));
 }
 
 function dot2html(source) {
@@ -142,7 +143,7 @@ function dot2html(source) {
     const child_process = require('child_process');
     let child = child_process.spawnSync('dot', ['-Tsvg', source])
     if (child.error) {
-      log('dot2html', child.error);
+      log('dot2html', child.error, child.stderr);
       reject(child.error);
       return;
     }

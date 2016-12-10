@@ -1,5 +1,5 @@
 # bs-cli
-bs is a simple CLI front-end for [browser-sync].
+[bs] is a simple CLI front-end for [browser-sync].
 
 ```
 bs hello.html
@@ -12,7 +12,7 @@ browser-sync start --server --startPath hello.html --files '*'
 
 ## Root directory
 
-bs uses the current directory as the root directory.
+[bs] uses the current directory as the root directory.
 ```
 bs dir/hello.html
 ```
@@ -30,7 +30,7 @@ starts [browser-sync] with the parent directory as the root.
 
 ### Bikeshed
 
-Files with `.bs` extension are preprocessed by [bikeshed],
+Files with `.bs` extensions are preprocessed by [bikeshed],
 or its online service if not installed locally.
 ```
 cd csswg-drafts/a-spec
@@ -39,7 +39,7 @@ bs -r .. Overview.bs
 
 ### Graphviz/dot
 
-Files with `.dot` extension are preprocessed by [Graphviz].
+Files with `.dot` extensions are preprocessed by [Graphviz].
 [Graphviz] must be installed locally in PATH.
 
 ## Install
@@ -55,4 +55,5 @@ npm -g install kojiishi/bs-cli
 [bikeshed]: https://github.com/tabatkins/bikeshed
 [bikeshed-js]: https://www.npmjs.com/package/bikeshed-js
 [browser-sync]: https://www.browsersync.io/
+[bs]: https://github.com/kojiishi/bs-cli
 [Graphviz]: http://www.graphviz.org/
