@@ -29,8 +29,8 @@ class BSCli {
     if (argv.verbose) log = console.log.bind(console);
     if (argv.watch) this.watchFiles = argv.watch.split(',');
 
-    this.rootDir = path.resolve(this.rootDir);
     this.startPath = path.resolve(argv._[0]);
+    this.rootDir = path.resolve(path.dirname(this.startPath), this.rootDir);
     this.startUrl = this.toUrl(this.startPath);
     let startPathComponents = path.parse(this.startPath);
     this.watchFiles = this.watchFiles.map(f => path.resolve(startPathComponents.dir, f));
