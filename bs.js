@@ -68,6 +68,7 @@ class Preview {
     debug('middleware:', req.url);
     let content = this.getContent(req.url);
     if (content) {
+      res.setHeader('Content-Type', 'text/html');
       res.write(content);
       res.end();
       debug('middleware end');
